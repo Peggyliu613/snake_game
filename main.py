@@ -1,5 +1,5 @@
 import time
-from turtle import Turtle, Screen
+from turtle import Screen
 import snake
 import food
 import scoreboard
