@@ -40,10 +40,9 @@ while game_is_on:
     if snake.snake[0].ycor() < -280 or snake.snake[0].ycor() > 280:
         game_is_on = False
 
-    for body in snake.snake:
-        if body != snake.snake[0]:
-            if snake.snake[0].distance(body) < 10:
-                game_is_on = False
+    for body in snake.snake[1:]:
+        if snake.snake[0].distance(body) < 10:
+            game_is_on = False
 
 scoreboard.game_over()
 
