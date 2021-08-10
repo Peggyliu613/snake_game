@@ -6,10 +6,13 @@ STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 class Snake:
     def __init__(self):
         self.snake = []
-        for position in STARTING_POSITIONS:
-            self.create_snake(position)
+        self.create_snake()
 
-    def create_snake(self, position):
+    def create_snake(self):
+        for position in STARTING_POSITIONS:
+            self.create_snake_body(position)
+
+    def create_snake_body(self, position):
         snake_body = Turtle("square")
         snake_body.color("white")
         snake_body.penup()
@@ -38,4 +41,11 @@ class Snake:
             self.snake[0].setheading(180)
 
     def extend(self):
-        self.create_snake(self.snake[-1].position())
+        self.create_snake_body(self.snake[-1].position())
+
+    def reset(self):
+        for snake_body in self.snake:
+            snake_body.hideturtle()
+        self.snake.clear()
+        self.snake = []
+        self.create_snake()
